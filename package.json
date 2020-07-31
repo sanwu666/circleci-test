@@ -1,0 +1,23 @@
+{
+  "name": "circleci-test",
+  "version": "1.0.0",
+  "main": "sum.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanwu666/circleci-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sanwu666/circleci-test/issues"
+  },
+  "homepage": "https://github.com/sanwu666/circleci-test#readme",
+  "devDependencies": {
+    "jest": "^26.2.1"
+  },
+  "dependencies": {},
+  "description": ""
+}

@@ -13,8 +13,8 @@ jobs:
   build:
     docker:
       - image: buildpack-deps:trusty # primary container
-          environment:
-            ENV: CI
+        environment:
+          ENV: CI
 
       - image: mongo:2.6.8
         command: [--smallfiles]

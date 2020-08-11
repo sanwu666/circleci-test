@@ -13,7 +13,7 @@ jobs:
   build:
     docker:
       - image: buildpack-deps:trusty # primary container
-        environment:
+          environment:
           ENV: CI
 
       - image: mongo:2.6.8
@@ -24,6 +24,13 @@ jobs:
           POSTGRES_USER: root
 
       - image: redis@sha256:54057dd7e125ca41afe526a877e8bd35ec2cdd33b9217e022ed37bdcf7d09673
+
+    working_directory: ~/
+
+    steps:
+      # command will execute in trusty container
+      # and can access mongo on localhost
+      - run: sleep 5 && nc -vz localhost 27017
 
 #jobs:
 #  job1:

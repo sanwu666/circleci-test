@@ -1,4 +1,14 @@
 version: 2
+commands:
+  sayhello:
+    description: "A very simple command for demonstration purposes"
+    parameters:
+      to:
+        type: string
+        default: "Hello World"
+    steps:
+      - run: echo << parameters.to >>
+
 jobs:
   job1:
     docker:

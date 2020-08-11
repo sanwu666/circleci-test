@@ -16,9 +16,9 @@ jobs:
 
     steps:
       - checkout
+      - command: sayhello
       - run: npm install
       - run: npm test
-      - run: sayhello
 
   job2:
     docker:

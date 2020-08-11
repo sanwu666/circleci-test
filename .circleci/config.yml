@@ -10,34 +10,47 @@ commands:
       - run: echo << parameters.to >>
 
 jobs:
-  job1:
+  build:
     docker:
-      - image: circleci/node:10
+      # Primary container image where all steps run.
+      - image: buildpack-deps:trusty
+      # Secondary container image on common network.
+      - image: mongo:2.6.8-jessie
+        command: [mongod, --smallfiles]
+
+    working_directory: ~/
 
     steps:
-      - checkout
-      - command: sayhello
-      - run: npm install
-      - run: npm test
+      # command will execute in trusty container
+      # and can access mongo on localhost
+      - run: sleep 5 && nc -vz localhost 27017
 
-  job2:
-    docker:
-      - image: circleci/node:10
+#jobs:
+#  job1:
+#    docker:
+#      - image: circleci/node:10
+#
+#    steps:
+#      - checkout
+#      - run: npm install
+#      - run: npm test
+#
+#  job2:
+#    docker:
+#      - image: circleci/node:10
+#
+#    steps:
+#      - checkout
+#      - run: cat README.md
 
-    steps:
-      - checkout
-      - run: cat README.md
+#workflows:
+#  version: 2
+#  one-and-two:
+#    jobs
 
-workflows:
-  version: 2
-  one-and-two:
-    jobs:
-      - job1
-      - job2
-
-  two-and-three:
-    jobs:
-      - job1
-      - job2:
-          requires:
-            - job1
+#  two-and-three:
+#    jobs:
+#      - job1
+#      - job2:
+#          requires:
+#            - job1

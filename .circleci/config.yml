@@ -56,6 +56,7 @@ jobs:
 #      - run: echo this is step
 #      - run: sleep 5 && nc -vz localhost 27017
 
+
   machine-job:
     machine:
       image: ubuntu-1604:202007-01
@@ -64,6 +65,17 @@ jobs:
       - run:
           name: "Testing"
           command: echo "Hi"
+
+  job4:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - run:
+          name: Install Docker Compose
+          command: |
+            set -x
+            curl -L https://github.com/docker/compose/releases/download/1.25.3/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+            chmod +x /usr/local/bin/docker-compose
 
 workflows:
   version: 2

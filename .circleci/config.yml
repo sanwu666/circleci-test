@@ -41,6 +41,7 @@ jobs:
     docker:
       - image: buildpack-deps:trusty
 #        entrypoint: ["echo", "this is", "test"]
+        command: echo this is command test
         name: testdocker
 #      - image: mongo:2.6.8
 #        command: [mongod, --smallfiles]

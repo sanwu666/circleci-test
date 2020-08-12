@@ -34,7 +34,6 @@ jobs:
 
   my-job:
     executor: my-executor
-    enviroment: ${}
     steps:
       - run: echo outside the executor
 

@@ -30,7 +30,7 @@ jobs:
     steps:
       # command will execute in trusty container
       # and can access mongo on localhost
-      - run: sleep 5 && nc -vz localhost 27017
+      - run: echo "test"
 
 #jobs:
 #  job1:

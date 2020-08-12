@@ -50,13 +50,23 @@ jobs:
     steps:
             # command will execute in trusty container
             # and can access mongo on localhost
+      - checkout
       - run: echo this is step
+
+  machine-job:
+    machine:
+      image: ubuntu-1604:202007-01
+      steps:
+        - checkout
+        - run:
+            name: "Testing"
+            command: echo "Hi"
 
 workflows:
   version: 2
   one-and-two:
     jobs:
-      - test-job
+      - machine-job
 
 #  two-and-three:
 #    jobs:

@@ -12,7 +12,7 @@ commands:
 executors:
   my-executor:
     docker:
-      -image: circleci/ruby:2.5.1-node-browsers
+      - image: circleci/ruby:2.5.1-node-browsers
 
 jobs:
   job1:

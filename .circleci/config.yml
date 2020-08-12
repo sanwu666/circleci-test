@@ -44,7 +44,7 @@ jobs:
       - image: mongo:2.6.8
         entrypoint: ["echo", "this is", "test"]
 
-    working_directory: ~/
+    working_directory: ~/project
     steps:
             # command will execute in trusty container
             # and can access mongo on localhost

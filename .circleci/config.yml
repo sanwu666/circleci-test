@@ -42,6 +42,10 @@ jobs:
       - image: buildpack-deps:trusty
       - image: mongo:2.6.8
 #        entrypoint: ["echo", "this is", "test"]
+      - image: 20200812/circlecidemo:v1
+        auth:
+          username: 20200812
+          password: $DOCKERHUB_PASSWORD
 
     working_directory: ~/project
     steps:

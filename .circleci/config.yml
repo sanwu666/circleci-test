@@ -38,7 +38,7 @@ jobs:
     steps:
       - run: echo outside the executor
 
-  docker-job：
+  test-job:
     docker:
       - image: buildpack-deps:trusty
           # Secondary container image on common network.
@@ -56,7 +56,7 @@ workflows:
   version: 2
   one-and-two:
     jobs:
-      - docker-job
+      - test-job
 
 #  two-and-three:
 #    jobs:

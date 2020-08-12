@@ -9,52 +9,62 @@ commands:
     steps:
       - run: echo << parameters.to >>
 
-jobs:
-  build:
+executors:
+  my-executor:
     docker:
-      - image: buildpack-deps:trusty # primary container
-        environment:
-          ENV: CI
-
-      - image: mongo:2.6.8
-        command: [--smallfiles]
-
-      - image: postgres:9.4.1
-        environment:
-          POSTGRES_USER: root
-
-      - image: redis@sha256:54057dd7e125ca41afe526a877e8bd35ec2cdd33b9217e022ed37bdcf7d09673
-
-    working_directory: ~/
-
-    steps:
-      # command will execute in trusty container
-      # and can access mongo on localhost
-      - run: echo "test"
+      -image: circleci/ruby:2.5.1-node-browsers
 
 #jobs:
-#  job1:
+#  build:
 #    docker:
-#      - image: circleci/node:10
+#      - image: buildpack-deps:trusty # primary container
+#        environment:
+#          ENV: CI
+#
+#      - image: mongo:2.6.8
+#        command: [--smallfiles]
+#
+#      - image: postgres:9.4.1
+#        environment:
+#          POSTGRES_USER: root
+#
+#      - image: redis@sha256:54057dd7e125ca41afe526a877e8bd35ec2cdd33b9217e022ed37bdcf7d09673
+#
+#    working_directory: ~/
 #
 #    steps:
-#      - checkout
-#      - run: npm install
-#      - run: npm test
-#
-#  job2:
-#    docker:
-#      - image: circleci/node:10
-#
-#    steps:
-#      - checkout
-#      - run: cat README.md
-#
-#workflows:
-#  version: 2
-#  one-and-two:
-#    jobs
-#
+#      # command will execute in trusty container
+#      # and can access mongo on localhost
+#      - run: echo "test"
+
+jobs:
+  job1:
+    docker:
+      - image: circleci/node:10
+
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm test
+
+  job2:
+    docker:
+      - image: circleci/node:10
+
+    steps:
+      - checkout
+      - run: cat README.md
+
+  my-job:
+    executor: my-executor
+    steps:
+      - run: echo outside the executor
+
+workflows:
+  version: 2
+  one-and-two:
+    my-job
+
 #  two-and-three:
 #    jobs:
 #      - job1

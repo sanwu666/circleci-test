@@ -42,7 +42,7 @@ jobs:
       - image: buildpack-deps:trusty
         name: testdocker
       - image: mongo:2.6.8
-        entrypoint: ["echo", "this is", "test"]
+#        entrypoint: ["echo", "this is", "test"]
 
     working_directory: ~/project
     steps:

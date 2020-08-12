@@ -42,7 +42,7 @@ jobs:
       - image: buildpack-deps:trusty
       - image: mongo:2.6.8
 #        entrypoint: ["echo", "this is", "test"]
-        name: mongourl
+      - name: mongourl
 
     working_directory: ~/project
     steps:

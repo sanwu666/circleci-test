@@ -40,7 +40,7 @@ jobs:
   test-job:
     docker:
       - image: buildpack-deps:trusty
-        entrypoint: ["echo", "this is", "test"]
+#        entrypoint: ["echo", "this is", "test"]
 #      - image: mongo:2.6.8
 #        command: [mongod, --smallfiles]
     working_directory: ~/

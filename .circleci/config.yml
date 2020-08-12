@@ -63,7 +63,8 @@ jobs:
 workflows:
   version: 2
   one-and-two:
-    my-job
+    jobs:
+      - my-job
 
 #  two-and-three:
 #    jobs:

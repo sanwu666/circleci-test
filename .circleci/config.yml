@@ -40,10 +40,8 @@ jobs:
   test-job:
     docker:
       - image: buildpack-deps:trusty
-#        entrypoint: ["echo", "this is", "test"]
         name: testdocker
       - image: mongo:2.6.8
-#        command: [mongod, --smallfiles]
         entrypoint: ["echo", "this is", "test"]
 
     working_directory: ~/
@@ -52,6 +50,7 @@ jobs:
             # and can access mongo on localhost
       - checkout
       - run: echo this is step
+      - run: sleep 5 && nc -vz localhost 27017
 
   machine-job:
     machine:
@@ -66,7 +65,7 @@ workflows:
   version: 2
   one-and-two:
     jobs:
-      - machine-job
+      - test-job
 
 #  two-and-three:
 #    jobs:

@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 commands:
   sayhello:
     description: "A very simple command for demonstration purposes"
@@ -34,14 +34,29 @@ jobs:
 
   my-job:
     executor: my-executor
+    enviroment: ${}
     steps:
       - run: echo outside the executor
+
+  docker-job：
+    docker:
+      - image: buildpack-deps:trusty
+          # Secondary container image on common network.
+          - image: mongo:2.6.8-jessie
+          command: [mongod, --smallfiles]
+
+      - working_directory: ~/
+
+      - steps:
+            # command will execute in trusty container
+            # and can access mongo on localhost
+            - run: sleep 5 && nc -vz localhost 27017
 
 workflows:
   version: 2
   one-and-two:
     jobs:
-      - my-job
+      - docker-job
 
 #  two-and-three:
 #    jobs:

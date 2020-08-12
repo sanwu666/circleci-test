@@ -32,10 +32,10 @@ jobs:
       - checkout
       - run: cat README.md
 
-  my-job:
-    executor: my-executor
-    steps:
-      - run: echo outside the executor
+#  my-job:
+#    executor: my-executor
+#    steps:
+#      - run: echo outside the executor
 
   test-job:
     docker:

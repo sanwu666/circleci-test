@@ -41,8 +41,8 @@ jobs:
     docker:
       - image: buildpack-deps:trusty
           # Secondary container image on common network.
-      - image: mongo:2.6.8-jessie
-        command: [mongod, --smallfiles]
+#      - image: mongo:2.6.8-jessie
+#        command: [mongod, --smallfiles]
       - working_directory: ~/
       - steps:
             # command will execute in trusty container

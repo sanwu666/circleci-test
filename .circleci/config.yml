@@ -41,13 +41,14 @@ jobs:
     docker:
       - image: buildpack-deps:trusty
           # Secondary container image on common network.
-      - image: mongo:2.6.8
-        command: [mongod, --smallfiles]
+      - entrypoint: echo this is entrypoint
+#      - image: mongo:2.6.8
+#        command: [mongod, --smallfiles]
     working_directory: ~/
     steps:
             # command will execute in trusty container
             # and can access mongo on localhost
-      - run: sleep 5 && nc -vz localhost 27017
+      - run: echo this is step
 
 workflows:
   version: 2

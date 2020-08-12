@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 commands:
   sayhello:
     description: "A very simple command for demonstration purposes"

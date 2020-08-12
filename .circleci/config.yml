@@ -42,7 +42,6 @@ jobs:
       - image: buildpack-deps:trusty
       - image: mongo:2.6.8
 #        entrypoint: ["echo", "this is", "test"]
-        name: mongo
 
     working_directory: ~/project
     steps:
@@ -50,7 +49,7 @@ jobs:
             # and can access mongo on localhost
       - checkout
       - run: echo this is step
-      - run: sleep 5 && nc -vz mongo 27017
+      - run: sleep 5 && nc -vz localhost 27017
 
   machine-job:
     machine:

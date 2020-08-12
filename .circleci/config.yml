@@ -55,10 +55,10 @@ jobs:
 
   machine-job:
     machine:
-      image: ubuntu-1604:202007-01
-      steps:
-        - checkout
-        - run:
+      - image: ubuntu-1604:202007-01
+    steps:
+      - checkout
+      - run:
             name: "Testing"
             command: echo "Hi"
 

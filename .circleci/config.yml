@@ -40,9 +40,9 @@ jobs:
   test-job:
     docker:
       - image: buildpack-deps:trusty
-        name: testdocker
       - image: mongo:2.6.8
 #        entrypoint: ["echo", "this is", "test"]
+        name: mongourl
 
     working_directory: ~/project
     steps:

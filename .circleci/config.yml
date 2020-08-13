@@ -97,16 +97,17 @@ jobs:
     steps:
       - checkout
       # ... steps for building/testing app ...
+      - run:
+          name: Install Docker client
+          command: apk add docker-cli
 
       - setup_remote_docker
 #          docker_layer_caching: true
 
       # build and push Docker image
-      - run:
-          name: Install Docker client
-          command: apk add docker-cli
+
       - run: |
           TAG=0.1.$CIRCLE_BUILD_NUM
           docker build -t CircleCI-Public/circleci-demo-docker:$TAG .
-          echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+          echo $DOCKER_PASS | docker login -u CircleCI-Public --password-stdin
           docker push CircleCI-Public/circleci-demo-docker:$TAG

@@ -101,8 +101,10 @@ jobs:
           name: Install Docker client
           command: apk add docker-cli
 
-      - setup_remote_docker
+      - setup_remote_docker:
+          version: 18.06.0-ce
 #          docker_layer_caching: true
+
 
       # build and push Docker image
 

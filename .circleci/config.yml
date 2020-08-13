@@ -116,8 +116,8 @@ jobs:
             sudo mv ~/docker-compose /usr/local/bin/docker-compose
 
       - run: |
-          docker run -d mongo:2.6.8
-          docker exec my-app curl --retry 10 --retry-connrefused http://localhost:27017
+          docker run -d --name mongo mongo:2.6.8
+          docker exec mongo curl --retry 10 --retry-connrefused http://localhost:27017
       #...
 
 

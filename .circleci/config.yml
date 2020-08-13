@@ -117,7 +117,7 @@ jobs:
 
       - run: |
           docker run -d --name mongo mongo:2.6.8
-          docker exec mongo curl --retry 10 --retry-connrefused http://localhost:27017
+#          docker exec mongo curl --retry 10 --retry-connrefused http://localhost:27017
       #...
 
 
@@ -133,4 +133,4 @@ jobs:
 #          command: |
 #            set -x
 #            docker-compose up -d \
-#      - run: nc -vz localhost 27017
+      - run: nc -vz localhost 27017

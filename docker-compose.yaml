@@ -6,7 +6,7 @@ mx_mysql:
     - ./conf/:/etc/mysql/conf.d
   ports:
     // 前面的3306表示宿主容器的端口，后面的3306表示容器内部的端口
-    - "3306:3306"
+    - 3306:3306
   environment:
     - MYSQL_DATABASE=online
     - MYSQL_ROOT_PASSWORD=123456

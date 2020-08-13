@@ -119,7 +119,7 @@ jobs:
           TAG=0.1.$CIRCLE_BUILD_NUM
           docker build -t circleci-public/circleci-demo-docker:$TAG .
           docker run --name circleci-demo circleci-demo-docker:$TAG
-          docker exec my-app curl --retry 10 --retry-connrefused http://localhost:8080
+          docker exec my-app curl --retry 10 --retry-connrefused http://localhost:27017
 #          echo $DOCKERHUB_PASSWORD | docker login -username $DOCKERHUB_USERNAME --password-stdin
 #          docker push circleci-public/circleci-demo-docker:$TAG
 #      - run:

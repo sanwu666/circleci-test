@@ -95,6 +95,7 @@ jobs:
     docker:
       - image: circleci/node:10
       - image: mongo:2.6.8
+    steps:
       - checkout
       # ... steps for building/testing app ...
 #      - run:

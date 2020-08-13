@@ -120,7 +120,7 @@ jobs:
 #          docker build -t circleci-public/circleci-demo-docker:$TAG .
 #          echo $DOCKERHUB_PASSWORD | docker login -username $DOCKERHUB_USERNAME --password-stdin
 #          docker push circleci-public/circleci-demo-docker:$TAG
-          docker run --name mongo:2.6.8
+          docker run --name mongo mongo:2.6.8
           docker exec my-app curl --retry 10 --retry-connrefused http://localhost:27017
 
       #      - run:

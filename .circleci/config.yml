@@ -125,5 +125,4 @@ jobs:
           command: |
             set -x
             docker-compose up -d \
-            mysql -h localhost -P 3306 -u root -p
-
+            sleep 5 && nc -vz localhost 27017

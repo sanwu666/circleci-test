@@ -21,6 +21,5 @@ services:
       - "6379:6379"
     command: redis-server --appendonly yes
 
-  mx_myservice:
-    restart: always
-    build: .
+  mx_mongo:
+    image: mongo:2.6.8

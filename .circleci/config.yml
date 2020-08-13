@@ -94,7 +94,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:10
-      - image: mongo:2.6.8
+#      - image: mongo:2.6.8
     steps:
       - checkout
       # ... steps for building/testing app ...
@@ -125,5 +125,5 @@ jobs:
           command: |
             set -x
             docker-compose up -d \
-            docker run --network container:mx_mysql
+            mysql -h 127.0.0.1 -P 3306 -u root -p
 

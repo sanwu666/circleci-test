@@ -23,3 +23,4 @@ services:
 
   mx_mongo:
     image: mongo:2.6.8
+

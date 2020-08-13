@@ -24,8 +24,3 @@ services:
   mx_myservice:
     restart: always
     build: .
-networks:
-  front-tier:
-    driver: bridge
-  back-tier:
-    driver: bridge

@@ -116,7 +116,6 @@ jobs:
             sudo mv ~/docker-compose /usr/local/bin/docker-compose
 
       - run: |
-          echo this is remote docker
           TAG=0.1.$CIRCLE_BUILD_NUM
           docker build -t circleci-public/circleci-demo-docker:$TAG .
 #          echo $DOCKERHUB_PASSWORD | docker login -username $DOCKERHUB_USERNAME --password-stdin
@@ -125,4 +124,6 @@ jobs:
           name: Start container and verify it is working
           command: |
             set -x
-            docker-compose up -d
+            docker-compose up -d \
+            docker run --network container:contacts
+

@@ -126,4 +126,4 @@ jobs:
           command: |
             set -x
             docker-compose up -d \
-      - run: nc -vz localhost 3306
+      - run: nc -vz localhost 27017

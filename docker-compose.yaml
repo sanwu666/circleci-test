@@ -28,4 +28,4 @@ networks:
   front-tier:
     driver: bridge
   back-tier:
-driver: bridge
+    driver: bridge

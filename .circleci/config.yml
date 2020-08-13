@@ -114,11 +114,14 @@ jobs:
             curl -L https://github.com/docker/compose/releases/download/1.11.2/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
             chmod +x ~/docker-compose
             sudo mv ~/docker-compose /usr/local/bin/docker-compose
-      - run:
-          - docker run -d mongo:2.6.8
-          - docker exec my-app curl --retry 10 --retry-connrefused http://localhost:27017
 
-#      - run: |
+      - run: |
+          docker run -d mongo:2.6.8
+          docker exec my-app curl --retry 10 --retry-connrefused http://localhost:27017
+      #...
+
+
+      #      - run: |
 #          TAG=0.1.$CIRCLE_BUILD_NUM
 #          docker build -t circleci-public/circleci-demo-docker:$TAG .
 #          echo $DOCKERHUB_PASSWORD | docker login -username $DOCKERHUB_USERNAME --password-stdin
